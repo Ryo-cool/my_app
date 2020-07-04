@@ -5,7 +5,7 @@ lock "~> 3.14.1"
 set :application, 'my_app'
 
 # デプロイ先のフォルダ
-set :deploy_to, '/var/○○○（ディレクトリ名）/○○○（アプリ名）'
+set :deploy_to, '/var/www/rails/my_app'
 
 # どのリポジトリからアプリをpullするかを指定する
 set :repo_url,  'https://github.com/Ryo-cool/my_app.git'
