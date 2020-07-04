@@ -4,6 +4,9 @@ lock "~> 3.14.1"
 # Capistranoのログの表示に利用する
 set :application, 'my_app'
 
+# デプロイ先のフォルダ
+set :deploy_to, '/var/○○○（ディレクトリ名）/○○○（アプリ名）'
+
 # どのリポジトリからアプリをpullするかを指定する
 set :repo_url,  'https://github.com/Ryo-cool/my_app.git'
 
