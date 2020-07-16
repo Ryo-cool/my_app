@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :items do
   end
   resources :posts
+  resources :users
+  root 'posts#index'
 end
