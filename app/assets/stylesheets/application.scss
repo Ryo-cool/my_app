@@ -19,6 +19,10 @@
   margin: 0px;
 }
 
-@import "posts";
 @import "reset";
+@import "config/colors";
 @import "modules/user";
+@import "posts";
+@import "modules/flash";
+@import "font-awesome-sprockets";
+@import "font-awesome";
