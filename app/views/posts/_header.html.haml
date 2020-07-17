@@ -6,3 +6,6 @@
       %li.navbar
         バー２
   .header-right
+  = current_user.name
+  の
+  = link_to "マイページ", "/users/#{current_user.id}"
