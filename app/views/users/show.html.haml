@@ -4,3 +4,5 @@
   = @user.email
   = link_to "EDIT", "/users/edit"
   = @user.introduction
+  %h3
+    = image_tag(@user.image.url)
