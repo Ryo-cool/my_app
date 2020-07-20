@@ -1,4 +1,14 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show]
+  def index
+    @users=User.all
+  end
+  def show
+    #user = User.find(params[:id])
+    @nickname = current_user.name
+  end
+  
+  
   def edit
   end
 
@@ -13,6 +23,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :introduction, :image)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
+ 
