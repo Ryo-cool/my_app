@@ -8,13 +8,17 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    # Post.create(post_params)
+    Post.create(post_params)
+    redirect_to root_path
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   private
   def post_params
-    params.permit(:name, :text)
+    params.require(:post).permit(:name, :text).merge(user_id: current_user.id)
   end
 
 end
