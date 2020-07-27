@@ -6,4 +6,7 @@
     .content_post
       = simple_format(post.name)
       %span.name
-      = link_to "マイページ", "/posts/#{post.id}"
+      -# = image_tag (post.images.first.src.url.to_s),size: "200x230"
+      = link_to "詳細", "/posts/#{post.id}"
+      = link_to asset_url("/posts/#{post.id}", method: :get) do
+        = image_tag (post.images.first.src.url.to_s),size: "200x200"

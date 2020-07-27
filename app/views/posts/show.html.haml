@@ -7,3 +7,7 @@
 = @post.user.name
 による投稿
 = link_to "トップページに戻る", root_path, class: 'btn'
+.change-post
+  - if current_user == @post.user
+    = link_to "削除", post_path(@post), method: :delete,
+      data: { confirm: "本当に削除しますか？" }
