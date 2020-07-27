@@ -4,5 +4,5 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :posts
+  has_many :posts, foreign_key: :user_id, dependent: :destroy
 end

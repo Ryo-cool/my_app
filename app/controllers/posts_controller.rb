@@ -18,6 +18,13 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  # ねこカフェ投稿削除処理
+  def destroy
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
+    redirect_to("/")
+  end
+
   private
   def post_params
     params.require(:post).permit(:name, :text,images_attributes: [:src]).merge(user_id: current_user.id)
