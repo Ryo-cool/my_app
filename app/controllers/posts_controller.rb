@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @images = Image.all
   end
 
   def new
     @post = Post.new
+    @post.images.new
   end
 
   def create
@@ -18,7 +20,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:name, :text).merge(user_id: current_user.id)
+    params.require(:post).permit(:name, :text,images_attributes: [:src]).merge(user_id: current_user.id)
   end
-
 end
