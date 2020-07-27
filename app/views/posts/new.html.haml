@@ -1,4 +1,5 @@
 .contents.row
+  = link_to "トップページに戻る", root_path, class: 'btn'
   .container
     = form_with(model: @post, local: true) do |form|
       %h3
