@@ -1,1 +1,9 @@
 .main
+  .main__content
+  さ
+.contents.row
+  - @posts.each do |post|
+    .content_post
+      = simple_format(post.name)
+      %span.name
+      = link_to "マイページ", "/posts/#{post.id}"

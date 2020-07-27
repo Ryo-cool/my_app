@@ -1,0 +1,9 @@
+%h1
+  = @post.name
+  = @post.text
+%ul
+  - @post.images.each do |image|
+    = image_tag image.src.to_s
+= @post.user.name
+による投稿
+= link_to "トップページに戻る", root_path, class: 'btn'

@@ -42,6 +42,14 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
   width: 100vw;
   background-color: wheat;
   font-family: $basic_font;
+  font-size: 20px;
+  &__content{
+    width: 88%;
+  }
+}
+
+.content_post{
+  background-color: yellowgreen;
 }
 
 .footer{
