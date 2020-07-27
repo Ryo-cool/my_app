@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @posts = Post.includes(:images).order('created_at DESC').limit(9)
     @images = Image.all
   end
 
@@ -18,11 +19,22 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  # ねこカフェ投稿削除処理
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    post = Post.find(params[:id])
+    post.update(post_params)
+    redirect_to("/")
+    flash[:alert] = "投稿が編集されました。"
+  end
+
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
     redirect_to("/")
+    flash[:alert] = "投稿が削除されました。"
   end
 
   private
