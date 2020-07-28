@@ -4,6 +4,18 @@
 %ul
   - @post.images.each do |image|
     = image_tag image.src.to_s
+.main__whole__center__comment-room
+  - if @comments.present?
+    .comments
+      - if @comments
+        - @comments.each do |comment|
+          .comments-name
+            = comment.user.name
+          .comments-box
+            .comments-box__text
+              = comment.text
+            .comments-box__date
+              %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at) + "前"
 .container
   - if current_user
     = form_with model: [@post, @comment], local: true do |f|
