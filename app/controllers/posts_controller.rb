@@ -11,8 +11,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params)
-    redirect_to root_path
+    @post = Post.new(post_params)
+    if @post.save
+      flash[:alert] = "投稿が完了しました"
+      redirect_to root_path
+    else
+      flash[:alert] = "投稿内容をご確認ください"
+      render :new
+    end
   end
 
   def show
