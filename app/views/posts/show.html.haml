@@ -16,6 +16,9 @@
               = comment.text
             .comments-box__date
               %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at) + "前"
+            .comments-delete
+              - if current_user == @comment.user
+                = link_to "削除", post_comment_path(@post, commnet), method: :delete
 .container
   - if current_user
     = form_with model: [@post, @comment], local: true do |f|
