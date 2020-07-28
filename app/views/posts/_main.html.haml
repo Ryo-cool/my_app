@@ -6,8 +6,5 @@
     .content_post
       = simple_format(post.name)
       %span.name
-      -# = image_tag (post.images.first.src.url.to_s),size: "200x230"
-      = link_to "詳細", "/posts/#{post.id}"
-      = link_to '編集', "/posts/#{post.id}/edit", method: :get
       = link_to asset_url("/posts/#{post.id}", method: :get) do
         = image_tag (post.images.first.src.url.to_s),size: "200x200"
