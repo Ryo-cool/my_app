@@ -1,0 +1,28 @@
+header {
+  background-color: deepskyblue;
+  height: 90px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  position: fixed;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header-links {
+  list-style: none;
+  display: flex;
+}
+
+.header-link {
+  margin-left: 30px;
+}

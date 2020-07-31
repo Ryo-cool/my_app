@@ -1,12 +1,12 @@
-.header
-  %nav.header-nav
-    %ul.navClass
-      %li.navbar
-        ナビゲーションバー
-      %li.navbar
-        バー２
+%header
+  %h1
+    %a{:href => "#"} HOME
+  %nav
+    %ul.header-links
+      %li.header-link
         = link_to "新規投稿", '/posts/new'
-  .header-right
-  = current_user.name
-  の
-  = link_to "マイページ", "/users/#{current_user.id}"
+      %li.header-link
+        = link_to current_user.name, "/users/#{current_user.id}"
+        さん
+      %li.header-link
+        %a{:href => "#"} Contents

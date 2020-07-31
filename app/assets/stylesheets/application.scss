@@ -14,7 +14,10 @@
  *= require_self
  */
 
-
+a{
+  text-decoration: none;
+  color:  deeppink;
+}
  body {
   margin: 0px;
 }
@@ -23,6 +26,7 @@
 @import "config/colors";
 @import "modules/user";
 @import "posts";
+@import "header";
 @import "modules/flash";
 @import "font-awesome-sprockets";
 @import "font-awesome";

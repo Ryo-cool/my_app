@@ -3,39 +3,7 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
   box-sizing: border-box;
 }
 
-.header{
-  height: 90px;
-  min-width: 1100px;
-  position: fixed;
-  width: 100%;
-  z-index: 500;
-  background: transparent;
-  ul{
-    text-align: center;
-    list-style: none;
-    box-sizing: border-box;
-    padding-left: 20px;
-    width: 100%;
-    li{
-      box-sizing: border-box;
-      text-align: center;
-      font-size: 15px;
-      font-weight: bold;
-      display: block;
-      padding: 34px 15px 33px 14px;
-      float: left;
-    }
-  }
-  &-right{
-    position: absolute;
-    right: 0;
-    top: 0;
-    float: right;
-    height: 100%;
-    width: 90px;
-    background-color: lightpink;
-  }
-}
+
 
 .main{
   height: 900px;
