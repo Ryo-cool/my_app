@@ -1,6 +1,8 @@
 %h1
   = @post.name
   = @post.text
+  %div{id: "like-#{@post.id}"}
+  = render "likes/like", post: @post
 %ul
   - @post.images.each do |image|
     = image_tag image.src.to_s

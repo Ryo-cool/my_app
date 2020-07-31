@@ -8,4 +8,6 @@
       %span.name
       = link_to asset_url("/posts/#{post.id}", method: :get) do
         = image_tag (post.images.first.src.url.to_s),size: "200x200"
+      -# %div{id: "like-#{post.id}"}
+        -# = render "likes/like", post: @post
 = paginate(@posts)

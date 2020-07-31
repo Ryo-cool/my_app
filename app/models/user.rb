@@ -6,6 +6,7 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable
   has_many :posts, foreign_key: :user_id, dependent: :destroy
   has_many :comments
+  has_many :likes, dependent: :destroy
   validates :name,        uniqueness: true
   validates :email,            uniqueness: true
 end
