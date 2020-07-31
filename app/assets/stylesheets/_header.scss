@@ -5,7 +5,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 60px;
+  padding: 0 90px;
   position: fixed;
 }
 
@@ -21,8 +21,16 @@ a {
 .header-links {
   list-style: none;
   display: flex;
-}
-
-.header-link {
-  margin-left: 30px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  .header-link {
+    margin-left: 30px;
+    text-align: center;
+    width: auto;
+    &:hover{
+      background-color: white;
+    }
+  }
 }
