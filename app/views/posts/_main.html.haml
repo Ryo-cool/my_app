@@ -9,8 +9,8 @@
 .contents.row
   .contents.row__new
     新規投稿一覧
-  - @posts.each do |post|
-    .content__post
+  .content__post
+    - @posts.each do |post|
       .content__post__lists
         %span.name
         = link_to asset_url("/posts/#{post.id}", method: :get) do
@@ -19,4 +19,5 @@
           = simple_format(post.name)
         -# %div{id: "like-#{post.id}"}
           -# = render "likes/like", post: @post
-= paginate(@posts)
+.pages
+  = paginate(@posts)

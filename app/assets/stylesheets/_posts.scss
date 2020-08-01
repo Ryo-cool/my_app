@@ -58,15 +58,18 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
 }
 .contents.row{
   background-color: yellowgreen;
-  height: 960px;
-  display: flex;
+  height: 750px;
   .contents.row__new{
     font-size: 18px;
+    height: 30px;
   }
   .content__post{
     background-color: yellowgreen;
+    height: 250px;
     justify-content: center;
     margin-top: 120px;
+    display: flex;
+    flex-wrap: wrap;
     &__lists{
       margin-left: 30px;
       &__name{
@@ -74,6 +77,12 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
       }
     }
   }
+}
+
+.pages{
+  background-color: olivedrab;
+  text-align: center;
+  margin: 0;
 }
 .footer{
   height: 200px;
