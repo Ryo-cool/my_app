@@ -6,20 +6,75 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
 
 
 .main{
-  height: 900px;
+  //height: 900px;
   width: 100vw;
   background-color: wheat;
   font-family: $basic_font;
   font-size: 20px;
   &__content{
-    width: 88%;
+    width: 100%;
+    &__photos{
+      height: 560px;
+      background-image: image-url("DSC03920.jpg");
+      background-size: cover;
+      background-position: top center;
+      //position: relative;
+      padding: 0 50px;
+      display: flex;
+      &__text{
+        color: white;
+        font-weight: bold;
+        margin: 100 0 60px;
+        display: block;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        b1 {
+          font-size: 60px;
+          z-index: 1;
+          position: absolute;
+          top: 170px;
+        }
+        b2 {
+          font-weight: bold;
+          font-size: 60px;
+          z-index: 1;
+          position: absolute;
+          top: 240px;
+        }
+        b3 {
+          font-size: 23px;
+          z-index: 1;
+          position: absolute;
+          top: 350px;
+        }
+        b4 {
+          font-size: 23px;
+          z-index: 1;
+          position: absolute;
+          top: 380px;
+        }
+      }
+    }
   }
 }
-
-.content_post{
+.contents.row{
   background-color: yellowgreen;
+  height: 960px;
+  display: flex;
+  .contents.row__new{
+    font-size: 18px;
+  }
+  .content__post{
+    background-color: yellowgreen;
+    justify-content: center;
+    margin-top: 120px;
+    &__lists{
+      margin-left: 30px;
+      &__name{
+        color: olive;
+      }
+    }
+  }
 }
-
 .footer{
   height: 200px;
   width: 100vw;
