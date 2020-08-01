@@ -32,3 +32,4 @@
   Rubocop
   RSpec
 ## ER図
+https://gyazo.com/51bff51e06c3bc53a250fcfd53885de0
