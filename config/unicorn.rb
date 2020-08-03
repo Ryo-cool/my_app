@@ -5,8 +5,8 @@ ENV['BUNDLE_GEMFILE'] = RAILS_ROOT + "/Gemfile"
 worker_processes 1
 
 #アプリケーションの設置されているディレクトリを指定
-# working_directory "#{app_path}/current"
-working_directory RAILS_ROOT
+working_directory "#{app_path}/current"
+# working_directory RAILS_ROOT
 #Unicornの起動に必要なファイルの設置場所を指定
 pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 
