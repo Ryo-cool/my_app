@@ -51,7 +51,8 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-
+  # ホストの変更を反映
+  config.reload_classes_only_on_change = false
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 

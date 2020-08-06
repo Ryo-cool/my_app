@@ -14,6 +14,8 @@
  *= require_self
  */
 
+$basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+
 a{
   text-decoration: none;
   color:  deeppink;
@@ -30,6 +32,7 @@ li{
 @import "modules/user";
 @import "posts";
 @import "header";
+// @import "footer";
 @import "modules/flash";
 @import "font-awesome-sprockets";
 @import "font-awesome";
