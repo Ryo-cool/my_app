@@ -15,11 +15,11 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
     width: 100%;
     &__photos{
       height: 560px;
-      background-image: image-url("DSC03920.jpg");
+      //background-image: image-url("DSC03920.jpg");
       background-size: cover;
       background-position: top center;
       //position: relative;
-      padding: 0 50px;
+      padding: 0 70px;
       display: flex;
       &__text{
         color: white;
@@ -58,16 +58,21 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
 }
 .contents.row{
   background-color: yellowgreen;
-  height: 750px;
-  .contents.row__new{
-    font-size: 18px;
-    height: 30px;
+  height: 100%;
+  margin: auto;
+  &__new{
+    font-size: 25px;
+    border-bottom: solid 1px khaki;
+    width: 90%;
+    //height: 30px;
+    margin-left: 60px;
+    margin-top: 20px;
   }
   .content__post{
     background-color: yellowgreen;
-    height: 250px;
-    justify-content: center;
-    margin-top: 120px;
+    //height: 250px;
+    justify-content: start;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     &__lists{
@@ -80,7 +85,7 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
 }
 
 .pages{
-  background-color: olivedrab;
+  background-color: forestgreen;
   text-align: center;
-  margin: 0;
+  //margin: 0;
 }

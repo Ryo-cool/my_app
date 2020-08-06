@@ -1,7 +1,7 @@
 %header
-  %h1
-    %a{:href => "#"} Grenbam
-  %nav
+  %h1.title
+    %a{:href => "/"} Grenbam
+  %nav.menus
   - if user_signed_in?
     %ul.header-links
       %li.header-link
@@ -10,7 +10,7 @@
         = link_to current_user.name, "/users/#{current_user.id}"
         さん
       %li.header-link
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
   - else
     %ul.header-links
       %li.header-link

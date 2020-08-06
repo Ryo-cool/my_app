@@ -6,18 +6,18 @@
         %b2 自然画像シェアアプリ
         %b3 Grenbamはだれでもかんたんに投稿・閲覧できる
         %b4 画像シェアアプリだよ
-.contents.row
-  .contents.row__new
-    新規投稿一覧
-  .content__post
-    - @posts.each do |post|
-      .content__post__lists
-        %span.name
-        = link_to asset_url("/posts/#{post.id}", method: :get) do
-          = image_tag (post.images.first.src.url.to_s),size: "200x200"
-        .content__post__lists__name
-          = simple_format(post.name)
-        -# %div{id: "like-#{post.id}"}
-          -# = render "likes/like", post: @post
-.pages
-  = paginate(@posts)
+  .contents.row
+    .contents.row__new
+      新規投稿一覧
+    .content__post
+      - @posts.each do |post|
+        .content__post__lists
+          %span.name
+          = link_to asset_url("/posts/#{post.id}", method: :get) do
+            = image_tag (post.images.first.src.url.to_s),size: "200x200"
+          .content__post__lists__name
+            = simple_format(post.name)
+          -# %div{id: "like-#{post.id}"}
+            -# = render "likes/like", post: @post
+  .pages
+    = paginate(@posts)

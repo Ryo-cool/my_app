@@ -1,0 +1,17 @@
+
+
+.new-pages {
+  margin: 0px;
+  .container {
+    padding: 200px 30px 50px 30px;
+    background-color: magenta;
+    .post_name {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4em;
+    }
+    .post_text {
+      font-size: 14px;
+    }
+  }
+}

@@ -114,7 +114,27 @@
     }
   }
 }
-
+.user-pages {
+  margin: 0px;
+  background-color: lightgray;
+  .user_data{
+    margin-left: 20px;
+    padding-top: 80px;
+    &_image {
+    }
+    &_name {
+      color: antiquewhite;
+      font-size: 28px;
+    }
+    &_introduction {
+      border-top: solid 2px #bdbdbd;
+      border-bottom: solid 2px #bdbdbd;
+    }
+  }
+}
+.return{
+  font-size: 20px;
+}
 #error_explanation {
   margin: 20px 0;
   padding: 20px 30px;
