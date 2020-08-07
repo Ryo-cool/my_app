@@ -57,7 +57,7 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
   }
 }
 .contents.row{
-  background-color: yellowgreen;
+  background-color: white;
   height: 100%;
   margin: auto;
   &__new{
@@ -69,14 +69,26 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
     margin-top: 20px;
   }
   .content__post{
-    background-color: yellowgreen;
     //height: 250px;
     justify-content: start;
     margin-top: 20px;
+    margin-left: 40px;
     display: flex;
     flex-wrap: wrap;
     &__lists{
       margin-left: 30px;
+      margin-bottom: 30px;
+      display: inline-block;
+      transition: 1.0s;
+      box-shadow: 0px 0px 6px 3px #34c0d3;
+      width: auto;
+      height: auto;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: left;
+      &:hover {
+        box-shadow: 0px 0px 14px 9px #34c0d3;
+      }
       &__name{
         color: olive;
       }

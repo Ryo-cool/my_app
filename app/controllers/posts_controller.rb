@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :show, :destroy]
   def index
     @posts = Post.all
-    @posts = Post.includes(:images).order('created_at DESC').page(params[:page]).per(8)
+    @posts = Post.includes(:images).order('created_at DESC').page(params[:page]).per(6)
     @images = Image.all
   end
 
