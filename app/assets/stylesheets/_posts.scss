@@ -15,7 +15,9 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
     width: 100%;
     &__photos{
       height: 560px;
-      //background-image: image-url("DSC03920.jpg");
+      // background-image: image-url("DSC03920.jpg");
+      // background-color:rgba(255,255,255,0.1);
+      // background-blend-mode:lighten;
       background-size: cover;
       background-position: top center;
       //position: relative;
