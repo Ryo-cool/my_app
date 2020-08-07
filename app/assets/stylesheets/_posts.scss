@@ -8,7 +8,7 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
 .main{
   //height: 900px;
   width: 100vw;
-  background-color: wheat;
+  background-color: #0be881;
   font-family: $basic_font;
   font-size: 20px;
   &__content{
@@ -57,7 +57,7 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
   }
 }
 .contents.row{
-  background-color: white;
+  background-color: #4bcffa;
   height: 100%;
   margin: auto;
   &__new{
@@ -79,7 +79,7 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
       margin-left: 30px;
       margin-bottom: 30px;
       display: inline-block;
-      transition: 1.0s;
+      transition: 0.5s;
       box-shadow: 0px 0px 6px 3px #34c0d3;
       width: auto;
       height: auto;
@@ -90,14 +90,14 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
         box-shadow: 0px 0px 14px 9px #34c0d3;
       }
       &__name{
-        color: olive;
+        color: #3c40c6;
       }
     }
   }
 }
 
 .pages{
-  background-color: forestgreen;
+  background-color: #34e7e4;
   text-align: center;
   //margin: 0;
 }

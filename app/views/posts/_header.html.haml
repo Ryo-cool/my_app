@@ -5,6 +5,7 @@
   - if user_signed_in?
     %ul.header-links
       %li.header-link
+        %i.fab.fa-opencart
         = link_to "新規投稿", '/posts/new'
       %li.header-link
         = link_to current_user.name, "/users/#{current_user.id}"

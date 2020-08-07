@@ -1,6 +1,6 @@
 header {
   //background-color: transparent;
-  background-color: orange;
+  background-color: #05c46b;
   height: 90px;
   width: 100%;
   justify-content: space-between;
@@ -35,7 +35,8 @@ a {
     text-align: center;
     //width: auto;
     &:hover{
-      background-color: white;
+      background-color: #575fcf;
+      color: olivedrab;
     }
   }
 }
