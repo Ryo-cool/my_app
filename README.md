@@ -14,7 +14,7 @@
 * いいね機能（Ajax / 非同期処理）
 * コメント機能
 <!-- CircleCI/CD 自動ビルド・自動テスト・自動デプロイ -->
-モデルに対するバリデーション(文字数・メールアドレス・パスワードなど)
+* モデルに対するバリデーション(文字数・メールアドレス・パスワードなど)
 ## 使用技術
 * フロント
     haml
@@ -30,7 +30,7 @@
     Docker/docker-compose
 * その他
   Capistrano
-  Rubocop
-  RSpec
+  <!-- Rubocop
+  RSpec -->
 ## ER図
 https://gyazo.com/51bff51e06c3bc53a250fcfd53885de0
