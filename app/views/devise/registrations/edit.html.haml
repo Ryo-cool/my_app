@@ -32,7 +32,7 @@
           .field-label
             = f.label :自己紹介文
           .field-input
-            = f.text_field :introduction
+            = f.text_area :introduction,{class:'sell-container__content__description', placeholder: '商品の説明（必須1000文字以内)'}
         .field
           .field-label
             = f.label :プロフィール画像

@@ -1,13 +1,23 @@
-.contents.row
-  = link_to "トップページに戻る", root_path, class: 'btn'
+= render "simple-header"
+.new-pages
   .container
     = form_with(model: @post, local: true) do |form|
-      %h3
-        投稿する
-      = form.text_field :name, placeholder: "name"
-      //= form.text_field :image, placeholder: "Image Url"
-      = form.text_area :text, placeholder: "text" , rows: "10"
-      = form.fields_for :images do |i|
-        = i.file_field :src
-        %br/
-      = form.submit "投稿する"
+      .posts
+        %h3.post
+          投稿画面
+        .post_name
+          タイトル
+        = form.text_field :name,class: "name_area", placeholder: "name"
+        //= form.text_field :image, placeholder: "Image Url"
+        .post_name
+          説明文
+          .post_text_area
+            = form.text_area :text,class: "text_area", placeholder: "text" , rows: "10"
+        .post_name
+          画像
+          .post_image_area
+            = form.fields_for :images do |i|
+              = i.file_field :src
+              %br/
+        = form.submit "投稿する",class: "submit_btn"
+= render "footer"

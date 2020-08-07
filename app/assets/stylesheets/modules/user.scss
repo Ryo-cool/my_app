@@ -3,7 +3,7 @@
     width: 980px;
     margin: 60px auto;
     padding: 60px;
-    background-color: #fff;
+    background-color: #d2dae2;
     border: 1px solid #ddd;
     border-radius: 5px;
 
@@ -61,7 +61,6 @@
         font-size: 11px;
       }
     }
-
     .field-input {
       input {
         width: 100%;
@@ -114,7 +113,30 @@
     }
   }
 }
-
+.user-pages {
+  margin: 0px;
+  background-color: #808e9b;
+  height: 800px;
+  .user_data{
+    margin-left: 40px;
+    padding-top: 80px;
+    &_image {
+    }
+    &_name {
+      color: antiquewhite;
+      font-size: 28px;
+    }
+    &_introduction {
+      border-top: solid 2px #bdbdbd;
+      border-bottom: solid 2px #bdbdbd;
+      white-space: pre-wrap;
+      padding-bottom: 20px;
+    }
+  }
+}
+.return{
+  font-size: 20px;
+}
 #error_explanation {
   margin: 20px 0;
   padding: 20px 30px;
@@ -138,4 +160,14 @@
     padding: 0;
     font-size: 13px;
   }
+}
+.sell-container__content__description {
+  //border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 12px;
+  width: 100%;
+  height: 150px;
+  font-size: 16px;
+  display: block;
 }

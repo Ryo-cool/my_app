@@ -2,22 +2,22 @@
   .main__content
     .main__content__photos
       .main__content__photos__text
-        %b1 人生を変える
-        %b2 フリマアプリ
-        %b3 FURIMAはだれでもかんたんに出品・購入できる
-        %b4 フリマアプリです
-.contents.row
-  .contents.row__new
-    新規投稿一覧
-  .content__post
-    - @posts.each do |post|
-      .content__post__lists
-        %span.name
-        = link_to asset_url("/posts/#{post.id}", method: :get) do
-          = image_tag (post.images.first.src.url.to_s),size: "200x200"
-        .content__post__lists__name
-          = simple_format(post.name)
-        -# %div{id: "like-#{post.id}"}
-          -# = render "likes/like", post: @post
-.pages
-  = paginate(@posts)
+        %b1 リラックス
+        %b2 自然フォトシェアアプリ
+        %b3 Grenbamはだれでもかんたんに投稿・閲覧できる
+        %b4 画像シェアアプリだよ
+  .contents.row
+    .contents.row__new
+      新規投稿一覧
+    .content__post
+      - @posts.each do |post|
+        .content__post__lists
+          %span.name
+          = link_to asset_url("/posts/#{post.id}", method: :get) do
+            = image_tag (post.images.first.src.url.to_s),size: "250x250"
+          .content__post__lists__name
+            = simple_format(post.name)
+          -# %div{id: "like-#{post.id}"}
+            -# = render "likes/like", post: @post
+  .pages
+    = paginate(@posts)
