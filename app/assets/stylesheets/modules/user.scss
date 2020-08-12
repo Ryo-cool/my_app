@@ -119,8 +119,11 @@
   height: 800px;
   .user_data{
     margin-left: 40px;
-    padding-top: 80px;
+    // margin-right: 40px;
+    width: 240px;
+    padding-top: 100px;
     &_image {
+      text-align: center;
     }
     &_name {
       color: antiquewhite;

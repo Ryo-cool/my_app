@@ -1,4 +1,9 @@
 .main
+  - if user_signed_in? 
+    .topbody__exhibition
+      %a 投稿する
+      =link_to new_post_path do
+        %i.fas.fa-camera
   .main__content
     .main__content__photos
       .main__content__photos__text
