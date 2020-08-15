@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .account-page {
   .account-page__inner {
     width: 980px;
@@ -140,10 +144,22 @@
     height: 100%;
     width: 100%;
     margin: 0 30px;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
     &-new {
-      background-color: #fff;
-      display: flex;
       &-list {
+        margin: 0 10px;
+        &-image {
+          border-radius: 4px;
+          border: 1px solid black;
+        }
+        &-name {
+          font-size: 8px;
+        }
+        &-text {
+          white-space: pre-wrap;
+        }
       }
     }
   }

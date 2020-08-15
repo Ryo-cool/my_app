@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :show, :destroy]
+  before_action :move_to_index, except: [:index, :show]
   def index
     @posts = Post.all
-    @posts = Post.includes(:images).order('created_at DESC').page(params[:page]).per(6)
+    @posts = Post.includes(:images,:user).order('created_at DESC').page(params[:page]).per(8)
     @images = Image.all
   end
 
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @comments = @post.comments.includes(:user)
   end
+
 
   def edit
   end
@@ -52,4 +54,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
 end

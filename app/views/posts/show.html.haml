@@ -36,9 +36,8 @@
     - else
       %strong
         %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
-  
-  = @post.user.name
-  による投稿
+    = link_to @post.user.name, @post.user
+    による投稿
   = link_to "トップページに戻る", root_path, class: 'btn'
   .change-post
     - if current_user == @post.user

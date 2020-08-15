@@ -13,13 +13,14 @@
   .user-posts
     // 新規投稿順
     .user-posts-new
+    - @posts.each do |post|
       .user-posts-new-list
-      - @posts.each do |post|
+        .user-posts-new-list-name
+          = post.name
+        -# .user-posts-new-list-text
+          -# = post.text      
         .user-posts-new-list-image
-          = image_tag (post.images.first.src.url.to_s),size: "250x250"
-          .user-posts-new-list-name
-            = post.name
-            .user-posts-new-list-text
-              = post.text
+          = link_to asset_url("/posts/#{post.id}", method: :get) do
+            = image_tag (post.images.first.src.url.to_s),size: "250x250"
 
 = render "posts/footer"
