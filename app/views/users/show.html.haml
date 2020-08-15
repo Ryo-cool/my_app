@@ -11,8 +11,15 @@
     .edit_btn
       = link_to "編集する", "/users/edit"
   .user-posts
-    = @posts
+    // 新規投稿順
     .user-posts-new
       .user-posts-new-list
+      - @posts.each do |post|
+        .user-posts-new-list-image
+          = image_tag (post.images.first.src.url.to_s),size: "250x250"
+          .user-posts-new-list-name
+            = post.name
+            .user-posts-new-list-text
+              = post.text
 
 = render "posts/footer"

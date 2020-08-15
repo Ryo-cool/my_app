@@ -140,6 +140,12 @@
     height: 100%;
     width: 100%;
     margin: 0 30px;
+    &-new {
+      background-color: #fff;
+      display: flex;
+      &-list {
+      }
+    }
   }
 }
 .return{
