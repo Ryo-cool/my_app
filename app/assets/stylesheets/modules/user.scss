@@ -114,14 +114,14 @@
   }
 }
 .user-pages {
-  margin: 0px;
+  padding-top: 120px;
   background-color: #808e9b;
   height: 800px;
+  display: flex;
   .user_data{
     margin-left: 40px;
     // margin-right: 40px;
     width: 240px;
-    padding-top: 100px;
     &_image {
       text-align: center;
     }
@@ -135,6 +135,11 @@
       white-space: pre-wrap;
       padding-bottom: 20px;
     }
+  }
+  .user-posts {
+    height: 100%;
+    width: 100%;
+    margin: 0 30px;
   }
 }
 .return{

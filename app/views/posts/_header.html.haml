@@ -11,6 +11,11 @@
         = link_to current_user.name, "/users/#{current_user.id}"
         さん
       %li.header-link
+        = link_to icon('fas', 'user') + " #{current_user.name}さん", '#', class: "nav-link dropdown-toggle", id: "navbarDropdown", role: "button", data: { toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" }
+        .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+          = link_to icon('fas', 'user') + ' マイページ', user_path(current_user), class: 'dropdown-item'
+          = link_to icon('fas', 'sign-out-alt') + ' ログアウト', root_path, class: 'dropdown-item'
+      %li.header-link
         = link_to "ログアウト", destroy_user_session_path, method: :delete
   - else
     %ul.header-links
