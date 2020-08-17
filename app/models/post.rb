@@ -12,4 +12,9 @@ class Post < ApplicationRecord
   def like_user(id)
     likes.find_by(user_id: id)
   end
+
+  # def user
+  #   return User.find_by(id: self.user_id)
+  # end
+
 end

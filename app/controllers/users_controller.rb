@@ -3,9 +3,13 @@ class UsersController < ApplicationController
   def index
     @users=User.all
   end
+  
   def show
-    #user = User.find(params[:id])
+    @user = User.find(params[:id])
     @nickname = current_user.name
+    @posts = @user.posts.order("created_at DESC")
+    # @user = @post.user
+    # @posts = @user.posts
   end
   
   

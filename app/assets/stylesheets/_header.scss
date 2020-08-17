@@ -21,7 +21,9 @@ header {
 a {
   text-decoration: none;
 }
-
+.nav-link  {
+  padding: 0px;
+}
 .header-links {
   list-style: none;
   display: flex;
@@ -35,7 +37,6 @@ a {
     text-align: center;
     //width: auto;
     &:hover{
-      background-color: #575fcf;
       color: olivedrab;
     }
   }

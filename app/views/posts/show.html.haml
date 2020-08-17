@@ -1,42 +1,47 @@
 = render "simple-header"
-%h1
-  = @post.name
-  = @post.text
-  %div{id: "like-#{@post.id}"}
-  = render "likes/like", post: @post
-%ul
-  - @post.images.each do |image|
-    = image_tag image.src.to_s
-.main__whole__center__comment-room
-  - if @comments.present?
-    .comments
-      - if @comments
-        - @comments.each do |comment|
-          .comments-name
-            = comment.user.name
-          .comments-box
-            .comments-box__text
-              = comment.text
-            .comments-box__date
-              %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at) + "前"
-            .comments-delete
-              - if current_user == @comment.user
-                = link_to "削除", post_comment_path(@post, commnet), method: :delete
-.container
-  - if current_user
-    = form_with model: [@post, @comment], local: true do |f|
-      = f.text_area :text, placeholder: "コメントする", rows: "2"
-      = f.hidden_field :post_id, value: @post.id
-      = f.submit "コメントする"
-  - else
-    %strong
-      %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
-
-= @post.user.name
-による投稿
-= link_to "トップページに戻る", root_path, class: 'btn'
-.change-post
-  - if current_user == @post.user
-    = link_to "削除", post_path(@post), method: :delete,
-      data: { confirm: "本当に削除しますか？" }
-    = link_to '編集', "/posts/#{@post.id}/edit", method: :get
+.main_contents
+  .show_posts
+    .show_posts-name
+      = @post.name
+    .show_posts_likes
+      %div{id: "like-#{@post.id}"}
+      = render "likes/like", post: @post
+    .show_posts-images
+      - @post.images.each do |image|
+        = image_tag image.src.to_s
+    .show_posts-text
+      = @post.text
+    .main__whole__center__comment-room
+      - if @comments.present?
+        .comments
+          - if @comments
+            - @comments.each do |comment|
+              .comments-name
+                = comment.user.name
+              .comments-box
+                .comments-box__text
+                  = comment.text
+                .comments-box__date
+                  %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at) + "前"
+                .comments-delete
+                  - if current_user == @comment.user
+                    = link_to "削除", post_comment_path(@post, commnet), method: :delete
+  .container_btn
+    - if current_user
+      = form_with model: [@post, @comment], local: true do |f|
+        .container_btn-area
+          = f.text_area :text, placeholder: "コメントを入力してください", rows: "2"
+          = f.hidden_field :post_id, value: @post.id
+        = f.submit "コメントする"
+    - else
+      %strong
+        %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+    = link_to @post.user.name, @post.user
+    による投稿
+  = link_to "トップページに戻る", root_path, class: 'btn'
+  .change-post
+    - if current_user == @post.user
+      = link_to "削除", post_path(@post), method: :delete,
+        data: { confirm: "本当に削除しますか？" }
+      = link_to '編集', "/posts/#{@post.id}/edit", method: :get
+  = render"footer"
