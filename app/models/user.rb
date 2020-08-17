@@ -9,4 +9,12 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   validates :name,        uniqueness: true
   validates :email,            uniqueness: true
+
+  # ゲストユーザーログイン機能
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+  
 end
