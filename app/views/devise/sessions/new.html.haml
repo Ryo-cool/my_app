@@ -19,3 +19,5 @@
               = f.password_field :password, autocomplete: "off"
           .actions
             = f.submit "Log in", class: 'btn'
+          .guests
+            = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'btn'
