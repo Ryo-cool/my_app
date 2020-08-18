@@ -45,6 +45,14 @@ class PostsController < ApplicationController
     flash[:alert] = "投稿が削除されました。"
   end
 
+  def search
+    @posts = Post.search(params[:keyword])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+  
   private
   def post_params
     params.require(:post).permit(:name, :text,images_attributes: [:src]).merge(user_id: current_user.id)
