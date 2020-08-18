@@ -9,7 +9,7 @@
     .user_data_introduction
       = @user.introduction
     .follow
-      = render ‘relationships/follow_button’, user: @user
+      = render "relationships/follow_button", user: @user
     .edit_btn
       = link_to "編集する", "/users/edit"
   .user-posts
