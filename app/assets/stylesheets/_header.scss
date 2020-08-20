@@ -3,7 +3,8 @@ header {
   background-color: #05c46b;
   height: 90px;
   width: 100%;
-  justify-content: space-between;
+  display: flex;
+  // justify-content: space-between;
   align-items: center;
   padding: 0 80px;
   position: fixed;
@@ -12,32 +13,46 @@ header {
 
 .title {
   font-size: 32px;
+  float: left;
   font-weight: bold;
   text-shadow: 0 0 3px rgba(58, 22, 141, 0.4);
-  float: left;
   margin-top: 30px;
+  margin-right: 50px;
 }
 
+.menus {
+  display: flex;
+  padding-top: 30px;
+  .search-form {
+    margin-top: 5px;
+    display: flex;
+    margin-right: auto !important;
+    .input-group-append {
+      margin-left: 5px;
+      margin-bottom: 5px;;
+    }
+  }
+  .header-links {
+    list-style: none;
+    display: flex;
+    font-weight: bold;
+    justify-content: flex-end;
+    //align-items: center;
+    font-size: 24px;
+    .header-link {
+      margin-left: 30px;
+      text-align: center;
+      //width: auto;
+      &:hover{
+        color: olivedrab;
+      }
+    }
+  }
+}
 a {
   text-decoration: none;
 }
 .nav-link  {
   padding: 0px;
 }
-.header-links {
-  list-style: none;
-  display: flex;
-  font-weight: bold;
-  margin-top: 30px;
-  justify-content: flex-end;
-  //align-items: center;
-  font-size: 24px;
-  .header-link {
-    margin-left: 30px;
-    text-align: center;
-    //width: auto;
-    &:hover{
-      color: olivedrab;
-    }
-  }
-}
+

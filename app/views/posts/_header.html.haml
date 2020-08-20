@@ -1,31 +1,28 @@
 %header
   %h1.title
     %a{:href => "/"} Grenbam
-  = form_with(url: "/posts/search", local: true, method: :get, class: "search-form") do |form|
-    = form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
-    = form.submit "検索", class: "search-btn"
-
   %nav.menus
-  - if user_signed_in?
-    %ul.header-links
-      %li.header-link
-        %i.fab.fa-opencart
-        = link_to "新規投稿", '/posts/new'
-      -# %li.header-link
-      -#   = link_to current_user.name, "/users/#{current_user.id}"
-      -#   さん
-      %li.header-link
-        = link_to icon('fas', 'user') + " #{current_user.name}さん", '#', class: "dropdown-toggle", id: "navbarDropdown", role: "button", data: { toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" }
-        .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-          = link_to icon('fas', 'user') + ' マイページ', user_path(current_user), class: 'dropdown-item'
-          = link_to icon('fas', 'sign-out-alt') + ' ログアウト', root_path, class: 'dropdown-item'
-      %li.header-link
-        = link_to "ログアウト", destroy_user_session_path, method: :delete
-  - else
-    %ul.header-links
-      %li.header-link
-        = link_to "ログイン", new_user_session_path,class: "btn btn-warning"
-      %li.header-link
-        = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post,class: "btn btn-primary"
-      %li.header-link
-        = link_to "新規会員登録", new_user_registration_path,class: "btn btn-danger"
+    = form_with(url: "/posts/search", local: true, method: :get, class: "search-form") do |form|
+      = form.text_field :keyword, placeholder: "投稿を検索する", class: "form-control form-control-lg"
+      .input-group-append
+        = form.submit "検索", class: "btn btn-primary"
+    - if user_signed_in?
+      %ul.header-links
+        %li.header-link
+          %i.fab.fa-opencart
+          = link_to "新規投稿", '/posts/new'
+        %li.header-link
+          = link_to icon('fas', 'user') + " #{current_user.name}さん", '#', class: "dropdown-toggle", id: "navbarDropdown", role: "button", data: { toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" }
+          .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+            = link_to icon('fas', 'user') + ' マイページ', user_path(current_user), class: 'dropdown-item'
+            = link_to icon('fas', 'sign-out-alt') + ' ログアウト', root_path, class: 'dropdown-item'
+        %li.header-link
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
+    - else
+      %ul.header-links
+        %li.header-link
+          = link_to "ログイン", new_user_session_path,class: "btn btn-warning"
+        %li.header-link
+          = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post,class: "btn btn-primary"
+        %li.header-link
+          = link_to "新規会員登録", new_user_registration_path,class: "btn btn-danger"

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :show, :destroy]
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :search]
   def index
     @posts = Post.all
     @posts = Post.includes(:images,:user).order('created_at DESC').page(params[:page]).per(8)
@@ -47,10 +47,10 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.search(params[:keyword])
-    respond_to do |format|
-      format.html
-      format.json
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.json
+    # end
   end
   
   private
