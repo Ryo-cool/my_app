@@ -13,6 +13,11 @@ class Post < ApplicationRecord
     likes.find_by(user_id: id)
   end
 
+  def self.search(search)
+    return Post.all unless search
+    Post.where('text LIKE(?)', "%#{search}%")
+  end
+
   # def user
   #   return User.find_by(id: self.user_id)
   # end

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :show, :destroy]
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :search]
   def index
     @posts = Post.all
     @posts = Post.includes(:images,:user).order('created_at DESC').page(params[:page]).per(8)
@@ -45,6 +45,14 @@ class PostsController < ApplicationController
     flash[:alert] = "投稿が削除されました。"
   end
 
+  def search
+    @posts = Post.search(params[:keyword])
+    # respond_to do |format|
+    #   format.html
+    #   format.json
+    # end
+  end
+  
   private
   def post_params
     params.require(:post).permit(:name, :text,images_attributes: [:src]).merge(user_id: current_user.id)

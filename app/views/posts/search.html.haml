@@ -1,0 +1,12 @@
+= render "header"
+.main
+  .contents.row
+    .content__post
+      - @posts.each do |post|
+        .content__post__lists
+          %span.name
+          = link_to asset_url("/posts/#{post.id}", method: :get) do
+            = image_tag (post.images.first.src.url.to_s),size: "250x250"
+          .content__post__lists__name
+            = simple_format(post.name)
+= render "footer"
