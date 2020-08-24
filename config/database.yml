@@ -16,6 +16,8 @@ default: &default
   username: root
   password: password
   host: db
+  variables:
+    sql_mode: TRADITIONAL
 
 development:
   <<: *default
@@ -52,4 +54,4 @@ production:
   database: myapp_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+  #socket: /var/lib/mysql/mysql.sock
