@@ -14,7 +14,7 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
   &__content{
     width: 100%;
     &__photos{
-      height: 560px;
+      height: 620px;
       background-image: image-url("DSC03920.jpg");
       background-color:rgba(255,255,255,0.1);
       background-blend-mode:lighten;
@@ -28,29 +28,29 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
         display: block;
         text-shadow: 0 0 5px rgba(0,0,0,0.4);
         b1 {
-          font-size: 60px;
+          font-size: 40px;
           z-index: 1;
           position: absolute;
-          top: 170px;
+          top: 250px;
         }
         b2 {
           font-weight: bold;
-          font-size: 60px;
+          font-size: 40px;
           z-index: 1;
           position: absolute;
-          top: 240px;
+          top: 300px;
         }
         b3 {
-          font-size: 23px;
+          font-size: 18px;
           z-index: 1;
           position: absolute;
-          top: 350px;
+          top: 370px;
         }
         b4 {
-          font-size: 23px;
+          font-size: 18px;
           z-index: 1;
           position: absolute;
-          top: 380px;
+          top: 400px;
         }
       }
     }

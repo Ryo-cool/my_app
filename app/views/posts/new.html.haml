@@ -6,6 +6,12 @@
         %h3.post
           投稿します
         .post_name
+          画像
+          .post_image_area
+            = form.fields_for :images do |i|
+              = i.file_field :src
+              %br/
+        .post_name
           タイトル
         = form.text_field :name,class: "name_area", placeholder: "name"
         //= form.text_field :image, placeholder: "Image Url"
@@ -13,12 +19,7 @@
           説明文
           .post_text_area
             = form.text_area :text,class: "text_area", placeholder: "text" , rows: "10"
-        .post_name
-          画像
-          .post_image_area
-            = form.fields_for :images do |i|
-              = i.file_field :src
-              %br/
+
         .post_submit-btn
           = form.submit "投稿する",class: "submit_btn"
 = render "footer"
