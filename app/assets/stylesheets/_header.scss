@@ -26,24 +26,33 @@ header {
     display: flex;
     margin-right: auto !important;
     width: 300px;
+    .form-control{
+      &:hover {
+        box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+      }
+    }
     .input-group-append {
       margin-left: 5px;
-      margin-bottom: 5px;;
+      margin-bottom: 5px;
     }
   }
   .header-links {
     list-style: none;
     display: flex;
-    font-weight: bold;
     justify-content: flex-end;
     font-size: 16px;
     margin-top: 10px;
     .header-link {
       margin-left: 30px;
       text-align: center;
-      &:hover{
-        color: snow;
+      a {
+        color: white;
+        transition: 0.1s;
+        &:hover{
+          color: black;
+        }
       }
+
     }
   }
 }

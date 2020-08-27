@@ -101,13 +101,14 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
   color: white;
   width: 140px;
   height: 140px;
-  background-color: forestgreen;
+  background-color: #1fec8d;
   border-radius: 7%;
   text-align: center;
   padding-top: 0px;
   box-sizing: border-box;
   cursor: pointer;
   z-index: 200;
+  transition:all 0.3s;
   a {
     font-size: 18px;
     text-decoration: none;
@@ -122,6 +123,9 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
   }
   &:hover {
     background-color: #34e7e4;
+    border-radius:35px;
+    width:130px;
+    height:130px;
   }
 }
 .pages{
