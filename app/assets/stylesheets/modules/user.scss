@@ -124,12 +124,19 @@
 
 .container {
   padding-top: 120px;
+  .rounded-circle {
+    object-fit: cover;
+  }
   .user-name {
     font-size: 30px;
   }
   .user-status {
     display: flex;
+    font-size: 16px;
     .status-value {
+      font-weight: bold;
+    }
+    .status-follow {
       font-weight: bold;
     }
   }
@@ -143,9 +150,6 @@
 }
 .user-posts{
   display: flex;
-  &-new-list {
-    margin-right: 45px;
-  }
 }
 .return{
   font-size: 20px;
