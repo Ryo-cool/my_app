@@ -1,12 +1,21 @@
 = render "header"
-.main
-  .contents.row
-    .content__post
-      - @posts.each do |post|
-        .content__post__lists
-          %span.name
-          = link_to asset_url("/posts/#{post.id}", method: :get) do
-            = image_tag (post.images.first.src.url.to_s),size: "250x250"
-          .content__post__lists__name
-            = simple_format(post.name)
+.container
+  .row.post-cards
+    - @posts.each do |post|
+      .col-lg-4.col-md-12.card-index
+        .card.mb-5
+          .card-header
+            .post-user
+              - if post.user.image?
+                = link_to image_tag(post.user.image.to_s, class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
+              - else
+                = link_to image_tag('no-avatar.png', class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
+              = link_to post.user.name, post.user
+          .card-image
+            = link_to asset_url("/posts/#{post.id}", method: :get) do
+              = image_tag (post.images.first.src.url.to_s),size: "250x250"
+          .card-footer
+            %div
+              %span= "コメント#{post.comments.count}件"
+              %span= "いいね！#{post.likes.count}件"
 = render "footer"

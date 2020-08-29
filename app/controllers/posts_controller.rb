@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
   def index
     @posts = Post.all
-    @posts = Post.includes(:images,:user).order('created_at DESC').page(params[:page]).per(8)
+    @posts = Post.includes(:images,:user).order('created_at DESC').page(params[:page]).per(6)
     @images = Image.all
   end
 

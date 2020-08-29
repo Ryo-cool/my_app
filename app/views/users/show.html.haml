@@ -12,8 +12,8 @@
     .d-flex.flex-column.mt-3.col-md-7
       .user-name.font-weight-bold.pb-2
         = @user.name
-      .edit_btn
-        = link_to "編集する", "/users/edit"
+        .edit_btn
+          = link_to "プロフィールを編集する", "/users/edit"
       %ul.user-status.mb-3
         %li.status-name 投稿
         .status-value= @user.posts.count.to_s(:delimited)
