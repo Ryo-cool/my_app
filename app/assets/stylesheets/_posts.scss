@@ -2,25 +2,26 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
 * {
   box-sizing: border-box;
 }
-
+// @mixin sm { @media (min-width: 576px) { @content; } }
+// @mixin md { @media (min-width: 768px) { @content; } }
+// @mixin lg { @media (min-width: 992px) { @content; } }
 
 
 .main{
   //height: 900px;
   width: 100vw;
-  background-color: #0be881;
   font-family: $basic_font;
   font-size: 20px;
   &__content{
     width: 100%;
     &__photos{
-      height: 560px;
+      height: 620px;
       background-image: image-url("DSC03920.jpg");
       background-color:rgba(255,255,255,0.1);
       background-blend-mode:lighten;
       background-size: cover;
       background-position: top center;
-      padding: 0 60px;
+      padding: 0 80px;
       //display: flex;
       &__text{
         color: white;
@@ -28,89 +29,102 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
         display: block;
         text-shadow: 0 0 5px rgba(0,0,0,0.4);
         b1 {
-          font-size: 60px;
+          font-size: 40px;
           z-index: 1;
           position: absolute;
-          top: 170px;
+          top: 250px;
         }
         b2 {
           font-weight: bold;
-          font-size: 60px;
+          font-size: 40px;
           z-index: 1;
           position: absolute;
-          top: 240px;
+          top: 300px;
         }
         b3 {
-          font-size: 23px;
+          font-size: 18px;
           z-index: 1;
           position: absolute;
-          top: 350px;
+          top: 370px;
         }
         b4 {
-          font-size: 23px;
+          font-size: 18px;
           z-index: 1;
           position: absolute;
-          top: 380px;
+          top: 400px;
         }
       }
     }
   }
 }
-.contents.row{
+// 保留中
+.contents{
   background-color: #4bcffa;
   height: 100%;
   margin: auto;
+  padding: 0 120px;
   &__new{
     font-size: 25px;
     border-bottom: solid 1px khaki;
-    width: 90%;
-    //height: 30px;
-    margin-left: 60px;
+    width: 100%;
     margin-top: 20px;
   }
   .content__post{
-    //height: 250px;
-    justify-content: start;
-    margin-top: 20px;
-    margin-left: 40px;
     display: flex;
-    flex-wrap: wrap;
+    margin: 15px;
     &__lists{
-      margin-left: 30px;
+      margin-right: 50px;
       margin-bottom: 30px;
-      display: inline-block;
       transition: 0.5s;
       box-shadow: 0px 0px 6px 3px #34c0d3;
       width: auto;
       height: auto;
       padding: 15px;
       border-radius: 10px;
-      text-align: left;
       &:hover {
         box-shadow: 0px 0px 14px 9px #34c0d3;
       }
-      &__name{
+      &-data{
         color: #3c40c6;
+      }
+      &_name {
+        text-align: center;
       }
     }
   }
 }
-
+.user_avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.card {
+  border-radius: 40px;
+  transition: 0.5s;
+  &:hover {
+    box-shadow: 0px 0px 16px 5px #34c0d3;
+  }
+  &-image {
+    text-align: center;
+  }
+}
 .topbody__exhibition {
   position: relative;
   bottom: 40px;
-  right: 40px;
+  right: 100px;
   position: fixed;
   color: white;
   width: 140px;
   height: 140px;
-  background-color: forestgreen;
+  background-color: #1fec8d;
   border-radius: 7%;
   text-align: center;
   padding-top: 0px;
   box-sizing: border-box;
   cursor: pointer;
   z-index: 200;
+  transition:all 0.3s;
   a {
     font-size: 18px;
     text-decoration: none;
@@ -125,6 +139,9 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
   }
   &:hover {
     background-color: #34e7e4;
+    border-radius:35px;
+    width:130px;
+    height:130px;
   }
 }
 .pages{

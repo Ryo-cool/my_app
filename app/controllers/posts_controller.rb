@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
   def index
     @posts = Post.all
-    @posts = Post.includes(:images,:user).order('created_at DESC').page(params[:page]).per(8)
+    @posts = Post.includes(:images,:user).order('created_at DESC').page(params[:page]).per(6)
+    @likes = Post.all.sort {|a,b| b.liked_users.count <=> a.liked_users.count}
     @images = Image.all
   end
 

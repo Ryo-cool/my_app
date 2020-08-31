@@ -1,12 +1,10 @@
 header {
-  //background-color: transparent;
-  background-color: #05c46b;
-  height: 90px;
+  background-color: #1fec8d;
+  height: 70px;
   width: 100%;
   display: flex;
-  // justify-content: space-between;
   align-items: center;
-  padding: 0 60px;
+  padding: 0 100px;
   position: fixed;
   z-index: 2;
 }
@@ -16,42 +14,61 @@ header {
   float: left;
   font-weight: bold;
   text-shadow: 0 0 3px rgba(58, 22, 141, 0.4);
-  margin-top: 30px;
-  margin-right: 50px;
+  margin-top: 15px;
+  margin-right: 250px;
+  transition: 0.5s;
+  &:hover {
+    background-color: #fff;
+    border-radius:35px;
+  }
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .menus {
   display: flex;
-  padding-top: 30px;
+  padding-top: 15px;
   .search-form {
     margin-top: 5px;
     display: flex;
     margin-right: auto !important;
+    width: 300px;
+    .form-control{
+      &:hover {
+        box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+      }
+    }
     .input-group-append {
       margin-left: 5px;
-      margin-bottom: 5px;;
+      margin-bottom: 5px;
     }
   }
   .header-links {
     list-style: none;
     display: flex;
-    font-weight: bold;
     justify-content: flex-end;
-    //align-items: center;
-    font-size: 24px;
+    font-size: 16px;
+    margin-top: 10px;
     .header-link {
       margin-left: 30px;
       text-align: center;
-      //width: auto;
-      &:hover{
-        color: olivedrab;
+      a {
+        color:black;
+        transition: 0.1s;
+        &:hover{
+          color: black;
+          text-decoration: none;
+          background-color: #fff;
+          border-radius:35px;
+        }
       }
     }
   }
 }
-a {
-  text-decoration: none;
-}
+
 .nav-link  {
   padding: 0px;
 }

@@ -1,28 +1,110 @@
 .header
 = render "posts/header"
-.user-pages
-  .user_data
-    .user_data_image
-      = image_tag @user.image.to_s,size: "200x200"
-    .user_data_name
-      = @user.name
-    .user_data_introduction
-      = @user.introduction
-    .follow
-      = render "relationships/follow_button", user: @user
-    .edit_btn
-      = link_to "編集する", "/users/edit"
-  .user-posts
+.container
+  .row.mx-auto{:style => "max-width: 700px;"}
+    .pr-5.col-md-5
+      - if @user.image?
+        = image_tag(@user.image.to_s, size: '200x200', class: 'rounded-circle d-none d-md-inline', alt: 'image image')
+        = image_tag(@user.image.to_s, size: '200x200', class: 'rounded-circle d-inline d-md-none', alt: 'image image')
+      - else
+        = image_tag('profile-avatar.png', size: '250x250', class: 'rounded-circle d-none d-md-inline', alt: 'image image')
+        = image_tag('profile-avatar.png', size: '200x200', class: 'rounded-circle d-inline d-md-none', alt: 'image image')
+    .d-flex.flex-column.mt-3.col-md-7
+      .user-name.font-weight-bold.pb-2
+        = @user.name
+        .edit_btn
+          = link_to "プロフィールを編集する", "/users/edit"
+      %ul.user-status.mb-3
+        %li.status-name 投稿
+        .status-value= @user.posts.count.to_s(:delimited)
+        件
+        %li.status-name.ml-5 フォロワー
+        .status-follow{:id => "followings_#{@user.id}"}= @user.followings.count.to_s(:delimited)
+        人
+      .user-menu.pb-2
+        - if user_signed_in?
+        - else
+          - if current_user.id == @user.id
+            = link_to 'プロフィール編集', edit_user_path(current_user), class:'btn btn-outline-dark'
+          - else
+            = render 'follow_area', user: @user
+      .user-profile{:style => "max-width: 400px; max-height: 140px; overflow: hidden;"}
+        = simple_format(@user.introduction)
+      .follow
+        = render "relationships/follow_button", user: @user
+  %ul.nav.nav-tabs.justify-content-center.mt-5
+    %li.nav-item
+      %a#posts-tab.nav-link.active{"aria-controls" => "item1", "aria-selected" => "true", "data-toggle" => "tab", :href => "#item1", :role => "tab"}
+        .user-status
+          %span.status-name 投稿
+          .status-value= @user.posts.count.to_s(:delimited)
+    %li.nav-item
+      %a#followings-tab.nav-link{"aria-controls" => "item2", "aria-selected" => "true", "data-toggle" => "tab", :href => "#item2", :role => "tab"}
+        .user-status
+          %span.status-name フォロー
+          .status-value{:id => "followings_#{@user.id}"}
+            = @user.followings.count.to_s(:delimited)
+    %li.nav-item
+      %a#followers-tab.nav-link{"aria-controls" => "item3", "aria-selected" => "true", "data-toggle" => "tab", :href => "#item3", :role => "tab"}
+        .user-status
+          %span.status-name フォロワー
+          .status-value{:id => "followers_#{@user.id}"}
+            = @user.followers.count.to_s(:delimited)
+    %li.nav-item
+      %a#likes-tab.nav-link{"aria-controls" => "item4", "aria-selected" => "true", "data-toggle" => "tab", :href => "#item4", :role => "tab"}
+        .user-status
+          %span.status-name いいね
+  .user-posts.row
     // 新規投稿順
     .user-posts-new
     - @posts.each do |post|
-      .user-posts-new-list
-        .user-posts-new-list-name
-          = post.name
-        -# .user-posts-new-list-text
-          -# = post.text      
+      .user-posts-new-list.col-md-4.mt-5
         .user-posts-new-list-image
           = link_to asset_url("/posts/#{post.id}", method: :get) do
-            = image_tag (post.images.first.src.url.to_s),size: "250x250"
+            = image_tag (post.images.first.src.url.to_s),size: "300x300"
+  %h3.liked_posts.shadow いいねしている投稿
+  - @user.liked_posts.each do |post|
+    = link_to asset_url("/posts/#{post.id}", method: :get) do
+      = image_tag (post.images.first.src.url.to_s),size: "300x300"
+      = link_to post.user.name, post.user
+.footer
+  = render "posts/footer"
 
-= render "posts/footer"
+
+
+
+
+
+
+
+
+
+
+-# .header
+-# = render "posts/header"
+-# .user-pages
+-#   .user_data
+-#     .user_data_image
+-#       = image_tag @user.image.to_s,size: "200x200"
+-#     .user_data_name
+-#       = @user.name
+-#     .user_data_introduction
+-#       = @user.introduction
+-#     .follow
+-#       = render "relationships/follow_button", user: @user
+-#     .edit_btn
+-#       = link_to "編集する", "/users/edit"
+-#   .user-posts
+-#     // 新規投稿順
+-#     .user-posts-new
+-#     - @posts.each do |post|
+-#       .user-posts-new-list
+-#         .user-posts-new-list-name
+-#           = post.name
+-#         -# .user-posts-new-list-text
+-#           -# = post.text      
+-#         .user-posts-new-list-image
+-#           = link_to asset_url("/posts/#{post.id}", method: :get) do
+-#             = image_tag (post.images.first.src.url.to_s),size: "250x250"
+
+-# = render "posts/footer"

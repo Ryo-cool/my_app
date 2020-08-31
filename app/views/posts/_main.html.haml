@@ -10,19 +10,61 @@
         %b1 リラックス
         %b2 自然フォトシェアアプリ
         %b3 Grenbamはだれでもかんたんに投稿・閲覧できる
-        %b4 画像シェアアプリです
-  .contents.row
-    .contents.row__new
-      新規投稿一覧
-    .content__post
-      - @posts.each do |post|
-        .content__post__lists
-          %span.name
-          = link_to asset_url("/posts/#{post.id}", method: :get) do
-            = image_tag (post.images.first.src.url.to_s),size: "250x250"
-          .content__post__lists__name
-            = simple_format(post.name)
-          -# %div{id: "like-#{post.id}"}
-            -# = render "likes/like", post: @post
+        %b4 画像シェアアプリですよ
+.container.pt-5
+  %h2.new-posts.pb-4.mt-0
+    新規投稿
+  .row.post-cards
+    - @posts.each do |post|
+      .col-lg-4.col-md-12.card-index
+        .card.mb-5
+          .card-header
+            .post-user
+              - if post.user.image?
+                = link_to image_tag(post.user.image.to_s, class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
+              - else
+                = link_to image_tag('no-avatar.png', class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
+              = link_to post.user.name, post.user
+          .card-image
+            = link_to asset_url("/posts/#{post.id}", method: :get) do
+              = image_tag (post.images.first.src.url.to_s),size: "250x250"
+          .card-footer
+            %div
+              %span= "コメント#{post.comments.count}件"
+              %span= "いいね！#{post.likes.count}件"
+  // 保留中
+  -# .contents.row
+  -#   .contents__new
+  -#     新規投稿一覧
+  -#   .content__post.row
+  -#     - @posts.each do |post|
+  -#       .content__post__lists.col-lg-3.mt-4
+  -#         .content__post__lists-data
+  -#           あ
+  -#         .content__post__lists_name
+  -#           = link_to asset_url("/posts/#{post.id}", method: :get) do
+  -#             = image_tag (post.images.first.src.url.to_s),size: "250x250"
   .pages
     = paginate(@posts)
+.bg-success
+  .container.pt-5
+    %h2.like-soats.text-light.pb-4.mt-0
+      人気の投稿
+    .row.post-cards
+      - @likes.each do |post|
+        .col-lg-4.col-md-12.card-index
+          .card.mb-5
+            .card-header
+              .post-user
+                - if post.user.image?
+                  = link_to image_tag(post.user.image.to_s, class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
+                - else
+                  = link_to image_tag('no-avatar.png', class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
+                = link_to post.user.name, post.user
+            .card-image
+              = link_to asset_url("/posts/#{post.id}", method: :get) do
+                = image_tag (post.images.first.src.url.to_s),size: "250x250"
+            .card-footer
+              %div
+                %span= "コメント#{post.comments.count}件"
+                %span= "いいね！#{post.likes.count}件"

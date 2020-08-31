@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :posts, foreign_key: :user_id, dependent: :destroy
   has_many :comments
   has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
   # フォロー機能
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
@@ -27,6 +28,11 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
       user.confirmed_at = Time.now
     end
+  end
+  
+  # いいねしているかの判定
+  def already_liked?(post)
+    self.likes.exists?(post_id: post.id)
   end
 
   # フォロー機能
