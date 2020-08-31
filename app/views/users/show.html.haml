@@ -59,41 +59,16 @@
     .user-posts-new
     - @posts.each do |post|
       .user-posts-new-list.col-md-4.mt-5
-        -# .user-posts-new-list-text
-          -# = post.text      
         .user-posts-new-list-image
           = link_to asset_url("/posts/#{post.id}", method: :get) do
             = image_tag (post.images.first.src.url.to_s),size: "300x300"
+  %h3.liked_posts.shadow いいねしている投稿
+  - @user.liked_posts.each do |post|
+    = link_to asset_url("/posts/#{post.id}", method: :get) do
+      = image_tag (post.images.first.src.url.to_s),size: "300x300"
+      = link_to post.user.name, post.user
 .footer
   = render "posts/footer"
-  -# .tab-content
-  -#   #item1.tab-pane.fade.show.active{"aria-labelledby" => "posts-tab", :role => "tabpanel"}
-  -#     - if @user.posts.any?
-  -#       #show-posts
-  -#         = render 'show_posts', objects: @posts
-  -#     - else
-  -#       .no-contents.d-flex.justify-content-center.align-items-center
-  -#         投稿がありません
-  -#   #item2.tab-pane.fade{"aria-labelledby" => "followings-tab", :role => "tabpanel"}
-  -#     - if @user.followings.any?
-  -#       = render 'show_follows', objects: @followings
-  -#     - else
-  -#       .no-contents.d-flex.justify-content-center.align-items-center
-  -#         誰もフォローしていません
-  -#   #item3.tab-pane.fade{"aria-labelledby" => "followers-tab", :role => "tabpanel"}
-  -#     - if @user.followers.any?
-  -#       = render 'show_follows', objects: @followers
-  -#     - else
-  -#       .no-contents.d-flex.justify-content-center.align-items-center
-  -#         フォローされていません
-  -#   #item4.tab-pane.fade{"aria-labelledby" => "likes-tab", :role => "tabpanel"}
-  -#     - if @user.like_posts.any?
-  -#       #show-likes
-  -#         = render 'show_posts', objects: @like_posts
-  -#     - else
-  -#       .no-contents.d-flex.justify-content-center.align-items-center
-  -#         いいね！ した投稿がありません
-
 
 
 
