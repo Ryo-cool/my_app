@@ -68,3 +68,22 @@
               %div
                 %span= "コメント#{post.comments.count}件"
                 %span= "いいね！#{post.likes.count}件"
+.container
+  .row.my-3
+    %h1 モーダルを開く
+  .row.mb-5
+    .col-2
+      %button.btn.btn-primary.mb-12{"data-target" => "#testModal", "data-toggle" => "modal", :type => "button"} ボタンで開く
+    .col-2
+      %a.btn.btn-primary{"data-target" => "#testModal", "data-toggle" => "modal"} リンクボタンで開く
+
+#testModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "basicModal", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4 class="modal-title" id="myModalLabel"&gt;削除確認画面
+      .modal-body
+        %label データを削除しますか？
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} 閉じる
+        %button.btn.btn-danger{:type => "button"} 削除
