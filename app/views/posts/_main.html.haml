@@ -25,9 +25,9 @@
               - else
                 = link_to image_tag('no-avatar.png', class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
               = link_to post.user.name, post.user
-          .card-image
-            = link_to asset_url("/posts/#{post.id}", method: :get) do
-              = image_tag (post.images.first.src.url.to_s),size: "250x250"
+          .card-image{"data-target" => "#testModal", "data-toggle" => "modal", :type => "button"}
+            //= link_to asset_url("/posts/#{post.id}", method: :get) do
+            = image_tag (post.images.first.src.url.to_s),size: "250x250"
           .card-footer
             %div
               %span= "コメント#{post.comments.count}件"
@@ -61,9 +61,9 @@
                 - else
                   = link_to image_tag('no-avatar.png', class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
                 = link_to post.user.name, post.user
-            .card-image
-              = link_to asset_url("/posts/#{post.id}", method: :get) do
-                = image_tag (post.images.first.src.url.to_s),size: "250x250"
+            .card-image{"data-target" => "#testModal", "data-toggle" => "modal", :type => "button"}
+              //= link_to asset_url("/posts/#{post.id}", method: :get) do
+              = image_tag (post.images.first.src.url.to_s),size: "250x250"
             .card-footer
               %div
                 %span= "コメント#{post.comments.count}件"
@@ -77,13 +77,15 @@
     .col-2
       %a.btn.btn-primary{"data-target" => "#testModal", "data-toggle" => "modal"} リンクボタンで開く
 
-#testModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "basicModal", :role => "dialog", :tabindex => "-1"}
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %h4 class="modal-title" id="myModalLabel"&gt;削除確認画面
-      .modal-body
-        %label データを削除しますか？
-      .modal-footer
-        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} 閉じる
-        %button.btn.btn-danger{:type => "button"} 削除
+
+- @posts.each do |post|
+  #testModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "basicModal", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %h4 class="modal-title" id="myModalLabel"&gt;削除確認画面
+        .modal-body
+          %label データを削除しますか？
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} 閉じる
+          %button.btn.btn-danger{:type => "button"} 削除
