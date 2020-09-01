@@ -33,6 +33,28 @@
             %div
               %span= "コメント#{post.comments.count}件"
               %span= "いいね！#{post.likes.count}件"
+%button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", "data-whatever" => "@mdo", :type => "button"} Open modal for @mdo
+%button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", "data-whatever" => "@fat", :type => "button"} Open modal for @fat
+%button.btn.btn-primary{"data-target" => "#exampleModal", "data-toggle" => "modal", "data-whatever" => "@getbootstrap", :type => "button"} Open modal for @getbootstrap
+#exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5#exampleModalLabel.modal-title New message
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        %form
+          .form-group
+            %label.col-form-label{:for => "recipient-name"} Recipient:
+            %input#recipient-name.form-control{:type => "text"}/
+          .form-group
+            %label.col-form-label{:for => "message-text"} Message:
+            %textarea#message-text.form-control
+      .modal-footer
+        %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+        %button.btn.btn-primary{:type => "button"} Send message
+
   // 保留中
   -# .contents.row
   -#   .contents__new
@@ -45,8 +67,8 @@
   -#         .content__post__lists_name
   -#           = link_to asset_url("/posts/#{post.id}", method: :get) do
   -#             = image_tag (post.images.first.src.url.to_s),size: "250x250"
-  .pages
-    = paginate(@posts)
+.pages
+  = paginate(@posts)
 .bg-success
   .container.pt-5
     %h2.like-soats.text-light.pb-4.mt-0
@@ -69,6 +91,7 @@
               %div
                 %span= "コメント#{post.comments.count}件"
                 %span= "いいね！#{post.likes.count}件"
+
 
 -# - @posts.each do |post|
 -#   #Modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "Modal", :role => "dialog", :tabindex => "-1"}
