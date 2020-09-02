@@ -57,42 +57,7 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
     }
   }
 }
-// 保留中
-.contents{
-  background-color: #4bcffa;
-  height: 100%;
-  margin: auto;
-  padding: 0 120px;
-  &__new{
-    font-size: 25px;
-    border-bottom: solid 1px khaki;
-    width: 100%;
-    margin-top: 20px;
-  }
-  .content__post{
-    display: flex;
-    margin: 15px;
-    &__lists{
-      margin-right: 50px;
-      margin-bottom: 30px;
-      transition: 0.5s;
-      box-shadow: 0px 0px 6px 3px #34c0d3;
-      width: auto;
-      height: auto;
-      padding: 15px;
-      border-radius: 10px;
-      &:hover {
-        box-shadow: 0px 0px 14px 9px #34c0d3;
-      }
-      &-data{
-        color: #3c40c6;
-      }
-      &_name {
-        text-align: center;
-      }
-    }
-  }
-}
+
 .user_avatar {
   width: 35px;
   height: 35px;
@@ -107,6 +72,9 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
   }
   &-image {
     text-align: center;
+  }
+  img {
+    object-fit :cover;
   }
 }
 .topbody__exhibition {
@@ -145,7 +113,6 @@ $basic_font: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothi
   }
 }
 .pages{
-  background-color: #34e7e4;
   text-align: center;
   //margin: 0;
 }

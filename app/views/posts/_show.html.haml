@@ -1,0 +1,35 @@
+.container
+  .row.border.bg-info
+    .img-container-large.border
+      - @post.images.each do |image|
+        = image_tag image.src.to_s
+    .show_posts-name
+      = @post.name
+    .show_posts-text
+      = @post.text
+    .show_posts_likes
+      %div{id: "like-#{@post.id}"}
+      = render "likes/like", post: @post
+-# .container
+-#   .row
+-#     .col-md-6.clearfix
+-#       .img-container-large
+-#         = image_tag image.src.to_s
+-#       .micropost-content
+-#         = @micropost.content
+-#       .micropost-created-at.pull-right
+-#         = "#{time_ago_in_words(@micropost.created_at)}前"
+-#     .col-md-6.clearfix.micropost-show-right
+-#       #like_button
+-#         = render 'partials/like_button'
+-#       .micropost-comments
+-#         = render @micropost.comments
+-#       .comment-form
+-#         = form_for (current_user.comments.build) do |f|
+-#           = hidden_field_tag :micropost_id, @micropost.id
+-#           = f.text_field :content, class:"form-control comment-form-text"
+-#           = f.object.errors.full_messages.first if f.object.errors.present?
+-#           = f.submit "コメント", class:"btn btn-primary pull-right"
+-# .container.delete-post
+-#   - if current_user==@micropost.contributer
+-#     = link_to '投稿を取り消す', @micropost, method: :delete, data:{confirm: "本当に取り消しますか"}, class:"btn btn-danger"

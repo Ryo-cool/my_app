@@ -23,11 +23,12 @@
               - if post.user.image?
                 = link_to image_tag(post.user.image.to_s, class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
               - else
-                = link_to image_tag('no-avatar.png', class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
+                = link_to image_tag('profile-avatar.png', class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
               = link_to post.user.name, post.user
           .card-image
-            = link_to asset_url("/posts/#{post.id}", method: :get) do
+            = link_to "/posts/#{post.id}", remote: true do
               = image_tag (post.images.first.src.url.to_s),size: "250x250"
+              //= link_to asset_url("/posts/#{post.id}", method: :get) do
           .card-footer
             %div
               %span= "コメント#{post.comments.count}件"
@@ -59,7 +60,7 @@
                 - if post.user.image?
                   = link_to image_tag(post.user.image.to_s, class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
                 - else
-                  = link_to image_tag('no-avatar.png', class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
+                  = link_to image_tag('profile-avatar', class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
                 = link_to post.user.name, post.user
             .card-image
               = link_to asset_url("/posts/#{post.id}", method: :get) do
@@ -68,3 +69,29 @@
               %div
                 %span= "コメント#{post.comments.count}件"
                 %span= "いいね！#{post.likes.count}件"
+
+#post-modal.modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "1"}
+  %button.close{"aria-label" => "閉じる", "data-dismiss" => "modal", :type => "button"}
+    %span{"aria-hidden" => "true"} ×
+-# - @posts.each do |post|
+-#   #Modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "Modal", :role => "dialog", :tabindex => "-1"}
+-#     .modal-dialog.modal-lg{:role => "document"}
+-#       .modal-content
+-#         .modal-header
+-#           %h5#Modal.modal-title モーダルのタイトルが表示されます
+-#           %button.close{"aria-label" => "閉じる", "data-dismiss" => "modal", :type => "button"}
+-#             %span{"aria-hidden" => "true"} ×
+-#         .modal-body
+-#           モーダルのコンテンツを表示します。このモーダルはサイズを大きくしています。
+-#           またレシポンシブデザインに対応しているので画面を小さくすると、モーダルも自動で縮小されます
+-#         .post-user
+-#           - if post.user.image?
+-#             = link_to image_tag(post.user.image.to_s, class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
+-#           - else
+-#             = link_to image_tag('no-avatar.png', class: 'user_avatar', alt: 'avatar image'), post.user, class: 'mr-2'
+-#           = link_to post.user.name, post.user
+-#         .card-image
+-#           = image_tag (post.images.first.src.url.to_s),size: "250x250"
+-#         .modal-footer
+-#           %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} 閉じる
+-#           %button.btn.btn-primary{:type => "button"} 保存
