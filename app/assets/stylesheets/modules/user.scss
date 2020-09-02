@@ -150,6 +150,11 @@
 }
 .user-posts{
   display: flex;
+  &-new-list-image {
+    img{
+      object-fit: cover;
+    }
+  }
 }
 .return{
   font-size: 20px;

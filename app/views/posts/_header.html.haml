@@ -9,7 +9,7 @@
     - if user_signed_in?
       %ul.header-links
         %li.header-link
-          = link_to "新規投稿", '/posts/new'
+          = link_to "新規投稿", '/posts/new',remote: true
         %li.header-link
           = link_to "ログアウト", destroy_user_session_path, method: :delete
         %li.header-link

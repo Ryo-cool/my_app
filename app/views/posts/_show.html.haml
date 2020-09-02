@@ -1,15 +1,16 @@
-.container
-  .row.border.bg-info
-    .img-container-large.border
-      - @post.images.each do |image|
-        = image_tag image.src.to_s
-    .show_posts-name
-      = @post.name
-    .show_posts-text
-      = @post.text
-    .show_posts_likes
-      %div{id: "like-#{@post.id}"}
-      = render "likes/like", post: @post
+.modal-dialog.modal-xl{:role => "document"}
+  .container
+    .row.border.bg-info
+      .img-container-large.border
+        - @post.images.each do |image|
+          = image_tag image.src.to_s
+      .show_posts-name
+        = @post.name
+      .show_posts-text
+        = @post.text
+      .show_posts_likes
+        %div{id: "like-#{@post.id}"}
+        = render "likes/like", post: @post
 -# .container
 -#   .row
 -#     .col-md-6.clearfix
