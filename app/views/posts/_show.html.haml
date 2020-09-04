@@ -1,16 +1,22 @@
-.modal-dialog.modal-xl{:role => "document"}
-  .container
+.modal-dialog.modal-lg{:role => "document"}
+  .modal-content
     .row.border.bg-info
       .img-container-large.border
         - @post.images.each do |image|
-          = image_tag image.src.to_s
-      .show_posts-name
-        = @post.name
-      .show_posts-text
-        = @post.text
-      .show_posts_likes
-        %div{id: "like-#{@post.id}"}
-        = render "likes/like", post: @post
+          = image_tag image.src.to_s,class: "post_image",size: "500x500"
+      .post-continer
+        .post-user-data.m-3
+          .post-user-data-image
+            = link_to image_tag(@post.user.image.to_s, class: 'user_avatar', alt: 'avatar image'), @post.user, class: 'mr-2'
+          .post-user-data-name
+            = link_to @post.user.name, @post.user, class: 'text-dark'
+        .show_posts-name
+          = @post.name
+          .show_posts-text
+            = @post.text
+          .show_posts_likes
+            %div{id: "like-#{@post.id}"}
+            = render "likes/like", post: @post
 -# .container
 -#   .row
 -#     .col-md-6.clearfix

@@ -1,7 +1,10 @@
 * {
   box-sizing: border-box;
 }
-
+a{
+  text-decoration: none;
+  color:  deeppink;
+}
 .main_contents {
   margin: 0px;
   .show_posts {
@@ -28,6 +31,16 @@
 .comments {
   margin: 0 auto;
   text-align: center;
+}
+
+.modal-content {
+  margin-top: 120px;
+  .post_image {
+    object-fit: cover;
+  }
+  .post-user-data {
+    display: flex;
+  }
 }
 
 .container_btn {
