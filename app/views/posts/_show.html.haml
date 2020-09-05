@@ -1,22 +1,50 @@
 .modal-dialog.modal-lg{:role => "document"}
   .modal-content
-    .row.border.bg-info
-      .img-container-large.border
+    .row
+      .img-container-large.border-right
         - @post.images.each do |image|
-          = image_tag image.src.to_s,class: "post_image",size: "500x500"
-      .post-continer
-        .post-user-data.m-3
+          = image_tag image.src.to_s, class: "post_image img-fluid"
+      .post-area
+        .post-header
+          .post-user-data
+            .post-user-data-image
+              = link_to image_tag(@post.user.image.to_s, class: 'user_avatar', alt: 'avatar image'), @post.user, class: 'mr-2'
+            .post-user-data-name.pt-1
+              = link_to @post.user.name, @post.user, class: 'text-body'
+        .post-container
           .post-user-data-image
             = link_to image_tag(@post.user.image.to_s, class: 'user_avatar', alt: 'avatar image'), @post.user, class: 'mr-2'
-          .post-user-data-name
-            = link_to @post.user.name, @post.user, class: 'text-dark'
-        .show_posts-name
-          = @post.name
-          .show_posts-text
-            = @post.text
-          .show_posts_likes
-            %div{id: "like-#{@post.id}"}
-            = render "likes/like", post: @post
+          .post-user-data-name.pt-1
+            = link_to @post.user.name, @post.user, class: 'text-body'
+            .show_posts-text.mt-2
+              = @post.text
+            .show_posts_likes
+              %div{id: "like-#{@post.id}"}
+              = render "likes/like", post: @post
+        .main__whole__center__comment-room
+          - if @comments.present?
+            .comments
+              - if @comments
+                - @comments.each do |comment|
+                  .comments-avater
+                    = link_to image_tag(@commnet.user.image.to_s, class: 'user_avatar', alt: 'avatar image'), @commnet.user, class: 'mr-2'
+                  .comments-name
+                    = comment.user.name
+                  .comments-box
+                    .comments-box__text
+                      = comment.text
+                    .comments-box__date
+                      %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at) + "前"
+                    .comments-delete
+                      - if current_user == @comment.user
+                        = link_to "削除", post_comment_path(@post, commnet), method: :delete
+        .container_btn
+          - if current_user
+            = form_with model: [@post, @comment], local: true do |f|
+              .container_btn-area
+                = f.text_area :text, placeholder: "コメントを入力してください", rows: "2"
+                = f.hidden_field :post_id, value: @post.id
+              = f.submit "コメントする"
 -# .container
 -#   .row
 -#     .col-md-6.clearfix
