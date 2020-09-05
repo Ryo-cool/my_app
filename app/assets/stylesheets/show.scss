@@ -1,33 +1,70 @@
 * {
   box-sizing: border-box;
 }
+a{
+  text-decoration: none;
+  color:  deeppink;
+}
+// .main_contents {
+//   margin: 0px;
+//   .show_posts {
+//     padding: 50px 30px 50px 30px;
+//     width: 40%;
+//     margin: 0 auto;
+//     text-align: center;
+//     &-name {
+//     }
+//     &-text {
+//       margin-top: 10px;
+//       font-size: 14px;
+//       font-weight: 600;
+//       line-height: 1.4em;
+//     }
+//     &-likes {
 
-.main_contents {
-  margin: 0px;
-  .show_posts {
-    padding: 50px 30px 50px 30px;
-    width: 40%;
-    margin: 0 auto;
-    text-align: center;
-    &-name {
-    }
-    &-text {
-      margin-top: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 1.4em;
-    }
-    &-likes {
+//     }
+//     &-images {
 
-    }
-    &-images {
+//     }
+//   }
+// }
+// .comments {
+//   margin: 0 auto;
+//   text-align: center;
+// }
 
+.modal-content {
+  margin-top: 70px;
+  .row {
+    // margin: 0px;
+    // flex-wrap: nowrap;
+    .post-area {
+      border-bottom: black;
+      height: 100%;
+      width: 100%;
+      .post-header {
+        border-bottom: 1px solid rgba(67, 74, 84, 0.125);
+        padding: 10px;
+      }
+    }
+    .post-container {
+      padding: 10px;
+      display: flex;
+      width: 100%;
     }
   }
-}
-.comments {
-  margin: 0 auto;
-  text-align: center;
+  .post_image {
+    object-fit: cover;
+  }
+  .post-user-data {
+    display: flex;
+    &-image {
+      height: 35px;
+    }
+  }
+  .main__whole__center__comment-room {
+    padding: 10px;
+  }
 }
 
 .container_btn {
@@ -46,3 +83,36 @@
     display: block;
   }
 }
+@media (min-width: 992px) {
+  .post-container {
+    font-size: 1.0rem;
+  }
+ }
+// 中デバイス（タブレット, 992px 未満）
+@media (max-width: 991.98px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap-reverse;
+  }
+  .post-container {
+    font-size: 2.0rem;
+  }
+ }
+@media (max-width: 767.98px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap-reverse;
+  }
+ .post-container {
+   font-size: 2.0rem;
+ }
+}
+@media (max-width: 575.98px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap-reverse;
+  }
+  .post-container {
+    font-size: 1.0rem;
+  }
+ }

@@ -1,0 +1,28 @@
+.modal-dialog.modal-lg{:role => "document"}
+  .modal-content
+    .container.post_form
+      = form_with(model: @post, local: true) do |form|
+        %h3.post
+          投稿します
+        .form-group.row
+          .justify-content-center.col-lg.mx-auto.mb-3
+            .post_image_area
+              = form.label :caption, '画像'
+              = form.fields_for :images do |i|
+                = i.file_field :src
+                %br/
+        .form-group.row
+          .justify-content-center.col-lg-12.mb-3
+            .post_name
+              = form.label :caption, 'タイトル'
+              = form.text_field :name,class: "form-control", placeholder: "name", required: "required"
+            //= form.text_field :image, placeholder: "Image Url"
+        .form-group.row
+          .justify-content-center.col-lg.mx-auto.mb-3
+            .post_text_area
+              = form.label :caption, '説明文（３００文字以内）'
+              = form.text_area :text,class: "form-control", placeholder: "text" , rows: "10", required: "required"
+        .row
+          .d-flex.justify-content-center.col-lg-6.mx-auto.mb-3
+            = form.submit "投稿する",class: "btn btn-primary form-control"
+

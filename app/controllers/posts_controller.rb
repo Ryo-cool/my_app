@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :show, :destroy]
   before_action :move_to_index, except: [:index, :show, :search]
   def index
-    @posts = Post.all
     @posts = Post.includes(:images,:user).order('created_at DESC').page(params[:page]).per(6)
     @likes = Post.all.sort {|a,b| b.liked_users.count <=> a.liked_users.count}
     @images = Image.all
@@ -11,6 +10,10 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.images.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -20,7 +23,7 @@ class PostsController < ApplicationController
       redirect_to root_path
     else
       flash[:alert] = "投稿内容をご確認ください"
-      render :new
+      redirect_to root_path
     end
   end
 

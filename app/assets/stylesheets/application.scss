@@ -16,10 +16,6 @@
 
 
 
-a{
-  text-decoration: none;
-  color:  deeppink;
-}
 li{
   list-style: none;
 }
@@ -42,6 +38,8 @@ body {
 .pagination>li>a:hover {        
   border-radius: 15px;    /*角を丸くする*/
 }
+
+
 
 @import "reset";
 @import "config/colors";

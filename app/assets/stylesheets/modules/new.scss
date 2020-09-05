@@ -1,66 +1,74 @@
 
-
-.new-pages {
-  margin: 0px;
-  background-color: gray;
-  .container {
-    padding: 100px 50px 50px 50px;
-    width: 60%;
-    background-color: white;
-    .posts {
-      .post{
-        text-align: center;
-        &_image_area {
-          margin-top: 10px;
-        }
-      }
-      .post_name {
-        margin-top: 30px;
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 1.4em;
-      }
-      .name_area {
-        margin-top: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        height: 48px;
-        padding: 0 16px;
-        width: 100%;
-        font-size: 16px;
-      }
-      .post_text {
-        font-size: 14px;
-      }
-      .text_area {
-        margin-top: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        padding: 16px;
-        width: 100%;
-        height: 150px;
-        font-size: 16px;
-        display: block;
-      }
-      .post_submit-btn {
-        text-align: center;
-        margin-top: 50px;
-        .submit_btn {
-          background-color: #cacee4c9;
-          margin-bottom: 24px;
-          width: 30%;
-          font-size: 17px;
-          height: 48px;
-          font-weight: 600;
-          border-radius: 4px;
-          text-align: center;
-          &:hover {
-            background-color: rgb(182, 198, 214);
-          }
-        }
-      }
-    }
+.post_form {
+  align-items: center;
+  .post {
+    text-align: center;
   }
+  // .post_image_area {
+  //   align-items: center;
+  // }
 }
+// .new-pages {
+//   margin: 0px;
+//   background-color: gray;
+//   .container {
+//     padding: 100px 50px 50px 50px;
+//     width: 60%;
+//     background-color: white;
+//     .posts {
+//       .post{
+//         text-align: center;
+//         &_image_area {
+//           margin-top: 10px;
+//         }
+//       }
+//       .post_name {
+//         margin-top: 30px;
+//         font-size: 14px;
+//         font-weight: 600;
+//         line-height: 1.4em;
+//       }
+//       .name_area {
+//         margin-top: 8px;
+//         border: 1px solid #ccc;
+//         border-radius: 4px;
+//         box-sizing: border-box;
+//         height: 48px;
+//         padding: 0 16px;
+//         width: 100%;
+//         font-size: 16px;
+//       }
+//       .post_text {
+//         font-size: 14px;
+//       }
+//       .text_area {
+//         margin-top: 8px;
+//         border: 1px solid #ccc;
+//         border-radius: 4px;
+//         box-sizing: border-box;
+//         padding: 16px;
+//         width: 100%;
+//         height: 150px;
+//         font-size: 16px;
+//         display: block;
+//       }
+//       .post_submit-btn {
+//         text-align: center;
+//         margin-top: 50px;
+//         .submit_btn {
+//           background-color: #cacee4c9;
+//           margin-bottom: 24px;
+//           width: 30%;
+//           font-size: 17px;
+//           height: 48px;
+//           font-weight: 600;
+//           border-radius: 4px;
+//           text-align: center;
+//           &:hover {
+//             background-color: rgb(182, 198, 214);
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
