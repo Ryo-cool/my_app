@@ -23,7 +23,7 @@ class PostsController < ApplicationController
       redirect_to root_path
     else
       flash[:alert] = "投稿内容をご確認ください"
-      render :new
+      redirect_to root_path
     end
   end
 
