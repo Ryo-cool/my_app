@@ -1,7 +1,7 @@
 %header
   %h1.title
     %a{:href => "/"} Grenbam
-  %nav.menus
+  %nav.menus.d-flex
     = form_with(url: "/posts/search", local: true, method: :get, class: "search-form") do |form|
       %form.form-inline.my-2.my-lg-0
         = form.text_field :keyword, placeholder: "投稿を検索する", class: "form-control"
@@ -19,7 +19,7 @@
             = link_to icon('fas', 'user') + ' マイページ', user_path(current_user), class: 'dropdown-item'
             = link_to icon('fas', 'sign-out-alt') + ' ログアウト', root_path, class: 'dropdown-item'
     - else
-      %ul.header-links
+      %ul.header-links.btn-group.d-flex
         %li.header-link
           = link_to "ログイン", new_user_session_path,class: "btn btn-warning"
         %li.header-link
