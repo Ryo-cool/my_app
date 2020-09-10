@@ -3,7 +3,7 @@
 旅行で撮った風景や、綺麗な花を見つけた時など気軽にシェアできます。
 自然の写真を見ると、ストレスレベルが減少したり、生産性が上がる効果が実証されています。
 仕事の休憩中や集中したい作業の前後などに気軽に自然が味わえるアプリです。
-<img width="1364" alt="top" src="https://user-images.githubusercontent.com/58380104/89628135-d7012980-d8d6-11ea-9b62-2a8822e895a6.png">
+<img width="1364" alt="top" src="https://user-images.githubusercontent.com/58380104/92756645-f9033580-f3c7-11ea-914c-5203a5b2a29f.png">
 
 ## 機能一覧
 * ユーザー登録・編集・ログイン機能（gem: Devise）
